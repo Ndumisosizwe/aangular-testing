@@ -26,10 +26,18 @@ describe('Unit Testing UserComponent', () => {
 
   it('should use the user name from userSerice', () => {
     let fixture = TestBed.createComponent(UserComponent);
-    fixture.autoDetectChanges(true);
+    fixture.detectChanges();
     let app = fixture.debugElement.componentInstance;
     let userService = fixture.debugElement.injector.get(UserService);
     expect(app.user.name).toEqual(userService.user.name);
+  });
+
+  it('paragraph tag should contain Ndumiso', () => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    let compiledComponent = fixture.debugElement.nativeElement;
+    fixture.detectChanges();
+    expect(compiledComponent.querySelector('h1').textContent).toContain('User Logged In');
   });
 
 });
