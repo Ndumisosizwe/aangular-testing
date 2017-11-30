@@ -8,7 +8,7 @@ import {UserService} from "./shared/user.service";
   providers: [UserService]
 })
 export class UserComponent implements OnInit {
-  public user: { name: string } = {name};
+  public user: { name: string };
   public isLoggedIn: boolean = true;
 
   constructor(private userService: UserService) {
